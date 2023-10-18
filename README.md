@@ -17,6 +17,19 @@ python -m domainbed.scripts.train_empirical --data_dir ./datasets/ --dataset PAC
 ```
 This would load the data from `./datasets/PACS/` and does standard ERM training, with environment 0 being the test environment and trains for 300 iterations/steps, the results will be saved in ./logs/ where you will find the best model checkpoint along with clean and robust accuracy (PGD and AutoAttack).
 
+algorithm could be any of those: 'ERM', 'PGDLinf', 'TradesLinf', 'PGDL2', 'TradesL2'.
+
+The default parameters for the adversarial training are:
+
+```
+eps = 2 / 255
+step = eps / 4
+num_steps = 10
+beta = 3.0
+```
+
+which could be replaced in `./domainbed/algorithms.py`
+
 ### Certified Robustness
 
 To train the models and evaluate the generalization of certified robustness, run the following command:
