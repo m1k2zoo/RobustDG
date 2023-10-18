@@ -5,7 +5,7 @@ This repository contains the PyTorch implementation of the paper "Generalizabili
 
 The code requires the following packages:
 
-- ...
+- [AutoAttack](https://github.com/fra31/auto-attack) (pip install git+https://github.com/fra31/auto-attack)
 
 ## Usage
 
@@ -13,8 +13,9 @@ The code requires the following packages:
 
 To train the models and evaluate the generalization of empirical robustness, run the following command:
 ```
-# code will be added soon.
+python -m domainbed.scripts.train_empirical --data_dir ./datasets/ --dataset PACS --algorithm ERM --test_env 0 --steps 300 --output_dir ./logs/
 ```
+This would load the data from `./datasets/PACS/` and does standard ERM training, with environment 0 being the test environment and trains for 300 iterations/steps, the results will be saved in ./logs/ where you will find the best model checkpoint along with clean and robust accuracy (PGD and AutoAttack).
 
 ### Certified Robustness
 
